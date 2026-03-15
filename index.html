@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilip Mohan | DevOps Architect + Full-Stack Engineer + GenAI Specialist</title>
+    <meta name="description" content="Hands-on expertise in Cloud, DevOps, Full-Stack Development, and GenAI - Delivering scalable enterprise solutions">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- Distinctive fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Organic color palette */
+            --color-cream: #FAF8F3;
+            --color-paper: #FFFFFF;
+            --color-ink: #2B2520;
+            --color-ink-light: #6B635C;
+            --color-ink-lighter: #9B938C;
+            
+            /* Accent colors */
+            --color-forest: #2F5233;
+            --color-rust: #C85A3E;
+            --color-ocean: #3D6B8C;
+            --color-amber: #D4A574;
+            
+            /* Tape colors */
+            --tape-white: rgba(255, 255, 255, 0.7);
+            --tape-cream: rgba(250, 240, 220, 0.8);
+            
+            /* Typography */
+            --font-serif: 'Crimson Pro', serif;
+            --font-sans: 'Manrope', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+            --space-2xl: 6rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-cream);
+            color: var(--color-ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Subtle paper texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.01) 2px, rgba(0,0,0,0.01) 4px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            position: relative;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: var(--space-md);
+            right: var(--space-lg);
+            background: var(--color-paper);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            display: flex;
+            gap: var(--space-md);
+        }
+        
+        nav a {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-ink-light);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--color-forest);
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: var(--space-2xl) 0;
+            position: relative;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: var(--space-xl);
+            align-items: center;
+            width: 100%;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+        }
+        
+        .hero-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-forest);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-md);
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            background: rgba(47, 82, 51, 0.08);
+            border-radius: 2rem;
+        }
+        
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            color: var(--color-ink);
+        }
+        
+        .hero h1 .highlight {
+            color: var(--color-forest);
+            position: relative;
+        }
+        
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0.1em;
+            left: 0;
+            width: 100%;
+            height: 0.15em;
+            background: var(--color-amber);
+            opacity: 0.4;
+            z-index: -1;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--color-ink-light);
+            max-width: 700px;
+            margin-bottom: var(--space-xl);
+            line-height: 1.8;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: 1rem 2rem;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--color-forest);
+            color: white;
+            box-shadow: 0 4px 12px rgba(47, 82, 51, 0.2);
+        }
+        
+        .btn-primary:hover {
+            background: #234020;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(47, 82, 51, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-ink);
+            border: 2px solid var(--color-ink-lighter);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--color-forest);
+            background: rgba(47, 82, 51, 0.05);
+        }
+        
+        /* Profile Picture - Polaroid Frame */
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .polaroid-frame {
+            background: var(--color-paper);
+            padding: var(--space-md);
+            padding-bottom: var(--space-xl);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transform: rotate(3deg);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            max-width: 350px;
+        }
+        
+        /* Tape effect on polaroid */
+        .polaroid-frame::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-3deg);
+            width: 90px;
+            height: 35px;
+            background: var(--tape-cream);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        
+        .polaroid-frame:hover {
+            transform: rotate(0deg) translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+        }
+        
+        .polaroid-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 2px;
+        }
+        
+        /* Placeholder styling */
+        .profile-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(47, 82, 51, 0.08), rgba(61, 107, 140, 0.08));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            border: 2px dashed rgba(47, 82, 51, 0.2);
+        }
+        
+        .profile-placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: var(--space-sm);
+            opacity: 0.3;
+        }
+        
+        .profile-placeholder-text {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-ink-lighter);
+            text-align: center;
+            padding: 0 var(--space-md);
+        }
+        
+        .polaroid-caption {
+            margin-top: var(--space-md);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--color-ink-light);
+            text-align: center;
+        }
+        
+        /* Section spacing */
+        section {
+            padding: var(--space-2xl) 0;
+            position: relative;
+        }
+        
+        .section-header {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-forest);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+            line-height: 1.2;
+        }
+        
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--color-ink-light);
+            max-width: 800px;
+            line-height: 1.8;
+        }
+        
+        /* Tech Stack Cloud */
+        .tech-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin: var(--space-xl) 0;
+            padding: var(--space-xl);
+            background: var(--color-paper);
+            border-radius: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .tech-badge {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.75rem 1.25rem;
+            background: linear-gradient(135deg, rgba(47, 82, 51, 0.08), rgba(61, 107, 140, 0.08));
+            border: 1px solid rgba(47, 82, 51, 0.15);
+            border-radius: 2rem;
+            color: var(--color-ink);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(47, 82, 51, 0.15);
+            border-color: var(--color-forest);
+        }
+        
+        .tech-badge.primary {
+            background: linear-gradient(135deg, var(--color-forest), var(--color-ocean));
+            color: white;
+            border: none;
+        }
+        
+        /* Domain expertise cards */
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        .domain-card {
+            background: var(--color-paper);
+            padding: var(--space-lg);
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .domain-card:nth-child(even) {
+            transform: rotate(0.5deg);
+        }
+        
+        .domain-card:nth-child(odd) {
+            transform: rotate(-0.5deg);
+        }
+        
+        .domain-card:hover {
+            transform: rotate(0deg) translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .domain-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .domain-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .domain-card p {
+            color: var(--color-ink-light);
+            line-height: 1.7;
+        }
+        
+        /* Project cards with TAPE EFFECT */
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2xl);
+            margin-top: var(--space-xl);
+        }
+        
+        .project-card {
+            background: var(--color-paper);
+            padding: var(--space-xl);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        /* TAPE EFFECTS */
+        .project-card::before,
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            width: 80px;
+            height: 30px;
+            background: var(--tape-cream);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+        }
+        
+        .project-card::before {
+            left: 15%;
+        }
+        
+        .project-card::after {
+            right: 20%;
+            transform: rotate(3deg);
+            background: var(--tape-white);
+        }
+        
+        .project-card:nth-child(even)::before {
+            transform: rotate(2deg);
+        }
+        
+        .project-card:nth-child(even)::after {
+            transform: rotate(-3deg);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .project-header {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: flex-start;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-lg);
+            border-bottom: 2px solid rgba(47, 82, 51, 0.1);
+        }
+        
+        .project-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-amber);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        
+        .project-title-section h3 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            color: var(--color-ink);
+        }
+        
+        .project-role {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-forest);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Collapsible Toggle Button */
+        .toggle-case-study {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 0.75rem 1.5rem;
+            margin-top: var(--space-md);
+            background: linear-gradient(135deg, rgba(47, 82, 51, 0.08), rgba(61, 107, 140, 0.08));
+            border: 2px solid rgba(47, 82, 51, 0.15);
+            border-radius: 2rem;
+            font-family: var(--font-sans);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--color-forest);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-case-study:hover {
+            background: linear-gradient(135deg, rgba(47, 82, 51, 0.12), rgba(61, 107, 140, 0.12));
+            border-color: var(--color-forest);
+        }
+        
+        .toggle-icon {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .toggle-case-study.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Case Study Content - Collapsible */
+        .case-study-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .case-study-content.expanded {
+            max-height: 10000px; /* Large enough for content */
+        }
+        
+        .case-study-inner {
+            padding-top: var(--space-xl);
+        }
+        
+        /* Case Study Sections */
+        .cs-section {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .cs-section h4 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            color: var(--color-ink);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .cs-section h4::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-forest);
+        }
+        
+        .cs-section h5 {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: var(--space-md) 0 var(--space-sm) 0;
+            color: var(--color-ink);
+        }
+        
+        .cs-section p {
+            color: var(--color-ink-light);
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+        }
+        
+        .cs-section ul {
+            list-style: none;
+            padding-left: var(--space-md);
+        }
+        
+        .cs-section li {
+            color: var(--color-ink-light);
+            line-height: 1.8;
+            margin-bottom: var(--space-sm);
+            position: relative;
+            padding-left: var(--space-md);
+        }
+        
+        .cs-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-forest);
+            font-weight: 700;
+        }
+        
+        /* Two-column layout for case study sections */
+        .cs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .cs-block {
+            padding: var(--space-lg);
+            border-radius: 0.5rem;
+            background: rgba(47, 82, 51, 0.03);
+            border-left: 4px solid var(--color-forest);
+        }
+        
+        .cs-block.warning {
+            background: rgba(200, 90, 62, 0.03);
+            border-left-color: var(--color-rust);
+        }
+        
+        /* Metrics display */
+        .metrics-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            padding: var(--space-lg);
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.08), rgba(61, 107, 140, 0.08));
+            border-radius: 0.75rem;
+            margin: var(--space-lg) 0;
+        }
+        
+        .metric-item {
+            text-align: center;
+            padding: var(--space-md);
+        }
+        
+        .metric-value {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-forest);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--color-ink-light);
+        }
+        
+        /* Callout boxes */
+        .callout {
+            background: rgba(212, 165, 116, 0.12);
+            padding: var(--space-lg);
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--color-amber);
+            margin: var(--space-lg) 0;
+        }
+        
+        .callout h5 {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .callout h5::before {
+            content: '💡';
+        }
+        
+        .callout p {
+            color: var(--color-ink-light);
+            font-style: italic;
+        }
+        
+        /* Tech tags */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin: var(--space-md) 0;
+        }
+        
+        .tech-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: rgba(47, 82, 51, 0.08);
+            border: 1px solid rgba(47, 82, 51, 0.15);
+            border-radius: 1.5rem;
+            color: var(--color-ink);
+        }
+        
+        /* Placeholder for diagrams/wireframes */
+        .placeholder-box {
+            background: linear-gradient(135deg, rgba(47, 82, 51, 0.05), rgba(61, 107, 140, 0.05));
+            border: 2px dashed rgba(47, 82, 51, 0.2);
+            border-radius: 0.5rem;
+            padding: var(--space-xl);
+            text-align: center;
+            color: var(--color-ink-lighter);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            margin: var(--space-lg) 0;
+        }
+        
+        /* Certifications section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        .cert-card {
+            background: var(--color-paper);
+            padding: var(--space-lg);
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--color-forest);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .cert-icon {
+            font-size: 2rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .cert-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .cert-issuer {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-forest);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-md);
+        }
+        
+        .cert-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .cert-card li {
+            color: var(--color-ink-light);
+            line-height: 1.7;
+            margin-bottom: var(--space-xs);
+            padding-left: var(--space-md);
+            position: relative;
+        }
+        
+        .cert-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-forest);
+            font-weight: 700;
+        }
+        
+        /* Contact section */
+        .contact {
+            text-align: center;
+            padding: var(--space-2xl) 0;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 2px solid rgba(47, 82, 51, 0.1);
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+        
+        footer p {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--color-ink-lighter);
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                top: auto;
+                bottom: var(--space-md);
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+            
+            .hero-image {
+                order: -1; /* Image appears on top on mobile */
+            }
+            
+            .polaroid-frame {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            
+            .cs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-card::before,
+            .project-card::after {
+                width: 60px;
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-label">DevOps Architect • Full-Stack Engineer • GenAI Specialist</div>
+                    <h1>
+                        Building <span class="highlight">scalable solutions</span><br>
+                        that deliver measurable<br>
+                        business value
+                    </h1>
+                    <p class="hero-description">
+                        Hands-on expertise across Cloud Services (AWS), DevOps automation, Full-Stack Development, 
+                        and GenAI implementation. Delivering zero-downtime migrations, rapid application development, 
+                        and enterprise-scale performance optimization.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">View Case Studies</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+                
+                <!-- Profile Picture - Polaroid Frame -->
+                <div class="hero-image">
+                    <div class="polaroid-frame">
+                        <!-- Replace this div with: <img src="your-photo.jpg" alt="Dilip Mohan"> -->
+						<img src="C:\Users\Administrator\Desktop\P_Pic.jpg" alt="Dilip Mohan">
+                        <!-- <div class="profile-placeholder">
+                            <div class="profile-placeholder-icon">👤</div>
+                            <div class="profile-placeholder-text">
+                                Replace with your photo<br>
+                                (350x350px recommended)
+                            </div>
+                        </div>
+                        <div class="polaroid-caption">Dilip Mohan</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Hands-On Tools & Technology -->
+    <section id="expertise">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Hands-On Expertise</div>
+                <h2 class="section-title">Tools & Technologies</h2>
+                <p class="section-description">
+                    Technical proficiency across the full stack - from cloud infrastructure to AI-powered applications. 
+                    Each tool represents real-world project experience and production deployments.
+                </p>
+            </div>
+            
+            <div class="tech-cloud fade-in stagger-1">
+                <span class="tech-badge primary">AWS Cloud Services</span>
+                <span class="tech-badge primary">Azure DevOps</span>
+                <span class="tech-badge primary">Docker & Kubernetes</span>
+                <span class="tech-badge primary">GenAI Development</span>
+                
+                <span class="tech-badge">Red Hat OpenShift</span>
+                <span class="tech-badge">CI/CD Pipelines</span>
+                <span class="tech-badge">DevSecOps</span>
+                <span class="tech-badge">API Gateway Management</span>                
+                
+                <span class="tech-badge">Python Automation</span>
+                <span class="tech-badge">PowerShell Scripting</span>
+                <span class="tech-badge">React & Node.js</span>
+                <span class="tech-badge">Claude AI & Kiro</span>
+                <span class="tech-badge">LLMs & RAG Systems</span>
+                
+                <span class="tech-badge">Performance Optimization</span>
+                <span class="tech-badge">Database Tuning</span>
+                <span class="tech-badge">Power BI & Automation</span>
+                <span class="tech-badge">Git & Version Control</span>
+                <span class="tech-badge">Partner Integration</span>
+            </div>
+            
+            <div class="section-header fade-in stagger-2" style="margin-top: var(--space-2xl);">
+                <div class="section-label">Domain Expertise</div>
+                <h2 class="section-title">Areas of Specialization</h2>
+            </div>
+            
+            <div class="domain-grid">
+                <div class="domain-card fade-in stagger-1">
+                    <div class="domain-icon">☁️</div>
+                    <h3>Cloud & DevOps</h3>
+                    <p>
+                        Enterprise-scale cloud migrations, DevOps automation, containerization, and 
+                        zero-downtime deployments. Expertise in AWS provisioning, Azure DevOps, and 
+                        Kubernetes orchestration.
+                    </p>
+                </div>
+                
+                <div class="domain-card fade-in stagger-2">
+                    <div class="domain-icon">🚀</div>
+                    <h3>Full-Stack Development</h3>
+                    <p>
+                        End-to-end enterprise grade application development with Angular, React, .NET, Node.js, and modern frameworks. 
+                        Rapid prototyping, dashboard applications, and business-critical system implementations.
+                    </p>
+                </div>
+                
+                <div class="domain-card fade-in stagger-3">
+                    <div class="domain-icon">🤖</div>
+                    <h3>GenAI & AI Agents</h3>
+                    <p>
+                        Building production LLM applications, implementing RAG systems, vector databases, 
+                        and AI-powered development workflows using Claude and Kiro for accelerated delivery.
+                    </p>
+                </div>
+                
+                <div class="domain-card fade-in stagger-4">
+                    <div class="domain-icon">⚡</div>
+                    <h3>System Performance & Integration</h3>
+                    <p>
+                        API gateway deployment, protocol optimization, database tuning, and partner system 
+                        integrations. Focus on measurable throughput improvements and latency reduction.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects with Case Studies -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Major Initiatives</div>
+                <h2 class="section-title">Case Studies & Key Projects</h2>
+                <p class="section-description">
+                    In-depth narratives of significant technical contributions - demonstrating problem-solving 
+                    approach, implementation strategy, and measurable business impact. Click to expand full case studies.
+                </p>
+            </div>
+            
+            <div class="projects-container">
+                <!-- Project 1: Enterprise DevOps Migration - FULL CASE STUDY -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-number">01</div>
+                        <div class="project-title-section">
+                            <h3>Enterprise DevOps Platform Migration</h3>
+                            <div class="project-role">Technical Architect • Cloud Migration Lead</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Summary (Always Visible) -->
+                    <p style="color: var(--color-ink-light); line-height: 1.8; margin-bottom: var(--space-md);">
+                        Led complete migration of globally distributed development teams from fragmented legacy systems 
+                        to unified cloud-based Azure DevOps platform. Achieved zero business disruption while modernizing 
+                        collaboration infrastructure for international teams and external partners.
+                    </p>
+                    
+                    <div class="metrics-showcase">
+                        <div class="metric-item">
+                            <div class="metric-value">Zero</div>
+                            <div class="metric-label">Downtime</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Global</div>
+                            <div class="metric-label">Team Unification</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">AWS</div>
+                            <div class="metric-label">Cloud Infrastructure</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Multi-Region</div>
+                            <div class="metric-label">Deployment</div>
+                        </div>
+                    </div>
+                    
+                    <!-- <button class="toggle-case-study" onclick="toggleCaseStudy(this)">
+                        <span>Read Full Case Study</span>
+                        <span class="toggle-icon">▼</span>
+                    </button> -->
+                    
+                    <!-- Collapsible Case Study Content -->
+                    <div class="case-study-content">
+                        <div class="case-study-inner">
+                            
+                            <!-- Background & Context -->
+                            <div class="cs-section">
+                                <h4>Background & Context</h4>
+                                <p>
+                                    The organization operated multiple Team Foundation Server (TFS) instances across different 
+                                    geographical locations, with development teams spread across offices and external vendor partners. 
+                                    This fragmented setup created significant collaboration challenges, increased operational overhead, 
+                                    and limited visibility into cross-team development activities.
+                                </p>
+                                <p>
+                                    Leadership identified platform modernization as strategic priority to improve development velocity, 
+                                    reduce operational costs, and establish foundation for future growth.
+                                </p>
+                            </div>
+                            
+                            <!-- Problem Statement -->
+                            <div class="cs-section">
+                                <h4>Problem Statement</h4>
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Technical Challenges</h5>
+                                        <ul>
+                                            <li>Fragmented legacy TFS instances across regions</li>
+                                            <li>Frequent merge conflicts from isolated workflows</li>
+                                            <li>Slow code review cycles due to limited visibility</li>
+                                            <li>Complex deployment coordination</li>
+                                            <li>Limited integration capabilities with modern tools</li>
+                                        </ul>
+                                    </div>
+                                    <div class="cs-block warning">
+                                        <h5>Business Impact</h5>
+                                        <ul>
+                                            <li>Delayed feature releases affecting time-to-market</li>
+                                            <li>Increased operational costs from multiple systems</li>
+                                            <li>Limited collaboration between distributed teams</li>
+                                            <li>Risk of data loss from aging infrastructure</li>
+                                            <li>Difficulty onboarding new team members</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Research & Discovery -->
+                            <div class="cs-section">
+                                <h4>Research & Discovery Phase</h4>
+                                <h5>Stakeholder Analysis</h5>
+                                <p>
+                                    Conducted comprehensive stakeholder interviews across development teams, project managers, 
+                                    and leadership to understand current pain points, workflow requirements, and success criteria. 
+                                    Identified critical integration points with existing tools and documented team-specific needs.
+                                </p>
+                                
+                                <h5>Technical Assessment</h5>
+                                <ul>
+                                    <li>Audited existing TFS instances, repositories, and historical data</li>
+                                    <li>Analyzed current branching strategies and deployment patterns</li>
+                                    <li>Evaluated cloud platform options (AWS vs Azure) based on existing infrastructure</li>
+                                    <li>Assessed network connectivity requirements for global teams</li>
+                                    <li>Reviewed security and compliance requirements</li>
+                                </ul>
+                                
+                                <h5>Risk Analysis</h5>
+                                <p>
+                                    Key risks identified: potential data loss during migration, business disruption from downtime, 
+                                    team resistance to workflow changes, and timeline pressure from ongoing projects. Developed 
+                                    comprehensive risk mitigation strategies for each identified concern.
+                                </p>
+                            </div>
+                            
+                            <!-- Solution Design -->
+                            <div class="cs-section">
+                                <h4>Solution Design & Architecture</h4>
+                                
+                                <h5>Platform Selection</h5>
+                                <p>
+                                    Selected Azure DevOps as target platform due to superior Git integration, built-in CI/CD 
+                                    capabilities, and seamless migration path from TFS. Chose AWS for infrastructure hosting 
+                                    to leverage existing organizational cloud expertise and geographic distribution capabilities.
+                                </p>
+                                
+                                <h5>Architecture Decisions</h5>
+                                <ul>
+                                    <li>Cloud-based deployment on AWS for scalability and global accessibility</li>
+                                    <li>Git-based version control for modern workflow patterns</li>
+                                    <li>Centralized Azure DevOps organization with project-based segmentation</li>
+                                    <li>Integrated CI/CD pipelines for automated deployments</li>
+                                    <li>Role-based access control aligned with organizational structure</li>
+                                </ul>
+                                
+                                <div class="placeholder-box">
+                                    [Architecture Diagram: Legacy TFS → Migration Path → Unified Azure DevOps on AWS]<br>
+                                    <small>Placeholder for infrastructure architecture diagram</small>
+                                </div>
+                                
+                                <h5>Migration Strategy</h5>
+                                <p>
+                                    Designed phased migration approach: pilot with small team, iterative rollout by region, 
+                                    parallel operation period, and coordinated cutover. Each phase included validation checkpoints 
+                                    and rollback procedures to ensure zero-downtime requirement.
+                                </p>
+                            </div>
+                            
+                            <!-- Implementation -->
+                            <div class="cs-section">
+                                <h4>Implementation Approach</h4>
+                                
+                                <h5>Phase 1: Infrastructure Provisioning</h5>
+                                <ul>
+                                    <li>Provisioned AWS cloud infrastructure with appropriate networking and security</li>
+                                    <li>Configured Azure DevOps organization structure and access controls</li>
+                                    <li>Established connectivity between regions and VPN access for remote teams</li>
+                                    <li>Set up monitoring and backup systems</li>
+                                </ul>
+                                
+                                <h5>Phase 2: Pilot Migration</h5>
+                                <ul>
+                                    <li>Selected pilot team for initial migration validation</li>
+                                    <li>Migrated repositories with full history preservation</li>
+                                    <li>Configured CI/CD pipelines and validated automated workflows</li>
+                                    <li>Gathered feedback and refined migration procedures</li>
+                                </ul>
+                                
+                                <h5>Phase 3: Full Rollout</h5>
+                                <ul>
+                                    <li>Executed region-by-region migration following validated procedures</li>
+                                    <li>Maintained parallel operation during transition period</li>
+                                    <li>Provided hands-on training and documentation for teams</li>
+                                    <li>Monitored adoption and addressed issues in real-time</li>
+                                </ul>
+                                
+                                <div class="tech-tags">
+                                    <span class="tech-tag">AWS Cloud</span>
+                                    <span class="tech-tag">Azure DevOps</span>
+                                    <span class="tech-tag">TFS Migration Tools</span>
+                                    <span class="tech-tag">Git</span>
+                                    <span class="tech-tag">CI/CD Pipelines</span>
+                                    <span class="tech-tag">Infrastructure as Code</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Challenges & Solutions -->
+                            <div class="cs-section">
+                                <h4>Challenges Faced & Solutions Implemented</h4>
+                                
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Challenge: Data Integrity</h5>
+                                        <p>
+                                            Ensuring complete repository history migration without data loss across thousands 
+                                            of commits and branches.
+                                        </p>
+                                    </div>
+                                    <div class="cs-block">
+                                        <h5>Solution</h5>
+                                        <p>
+                                            Implemented automated validation scripts comparing source and destination repositories. 
+                                            Performed multiple dry-run migrations and established verification checkpoints.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Challenge: Zero-Downtime Requirement</h5>
+                                        <p>
+                                            Business could not tolerate development disruption during active sprint cycles.
+                                        </p>
+                                    </div>
+                                    <div class="cs-block">
+                                        <h5>Solution</h5>
+                                        <p>
+                                            Designed parallel operation strategy where teams could continue on legacy systems 
+                                            during migration, with synchronized cutover windows aligned to sprint boundaries.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Challenge: Team Adoption</h5>
+                                        <p>
+                                            Teams accustomed to centralized version control needed to adapt to distributed Git workflows.
+                                        </p>
+                                    </div>
+                                    <div class="cs-block">
+                                        <h5>Solution</h5>
+                                        <p>
+                                            Developed comprehensive training materials, conducted hands-on workshops, and established 
+                                            migration champions within each team to provide peer support.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Results & Impact -->
+                            <div class="cs-section">
+                                <h4>Results & Measurable Impact</h4>
+                                
+                                <h5>Quantitative Outcomes</h5>
+                                <div class="metrics-showcase">
+                                    <div class="metric-item">
+                                        <div class="metric-value">100%</div>
+                                        <div class="metric-label">Data Integrity</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value">0</div>
+                                        <div class="metric-label">Minutes Downtime</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value">50%</div>
+                                        <div class="metric-label">Faster Code Reviews</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value">80%</div>
+                                        <div class="metric-label">Reduction in Merge Conflicts</div>
+                                    </div>
+                                </div>
+                                
+                                <h5>Qualitative Benefits</h5>
+                                <ul>
+                                    <li>Unified platform improved cross-team collaboration and visibility</li>
+                                    <li>Modern Git workflows enabled better branching strategies and code review processes</li>
+                                    <li>Integrated CI/CD pipelines accelerated deployment cycles</li>
+                                    <li>Cloud-based solution improved accessibility for distributed teams</li>
+                                    <li>Reduced operational overhead from managing multiple TFS instances</li>
+                                </ul>
+                                
+                                <h5>Business Value Delivered</h5>
+                                <p>
+                                    Migration established modern DevOps foundation enabling faster feature delivery, improved 
+                                    developer productivity, and reduced operational costs. Platform positioned organization 
+                                    for future growth with scalable, cloud-based collaboration infrastructure.
+                                </p>
+                            </div>
+                            
+                            <!-- Lessons Learned -->
+                            <div class="cs-section">
+                                <h4>Key Lessons Learned</h4>
+                                
+                                <div class="callout">
+                                    <h5>Stakeholder Communication is Critical</h5>
+                                    <p>
+                                        Regular updates to leadership, transparent timeline communication, and proactive issue 
+                                        escalation built trust and ensured continued support throughout migration journey.
+                                    </p>
+                                </div>
+                                
+                                <div class="callout">
+                                    <h5>Pilot Phase Value</h5>
+                                    <p>
+                                        Initial pilot with small team identified issues early, validated procedures, and built 
+                                        confidence before full-scale rollout. Investment in pilot phase saved significant time later.
+                                    </p>
+                                </div>
+                                
+                                <div class="callout">
+                                    <h5>Training and Documentation</h5>
+                                    <p>
+                                        Comprehensive training materials and hands-on workshops were essential for smooth adoption. 
+                                        Teams that received proper training adapted significantly faster than those relying solely 
+                                        on documentation.
+                                    </p>
+                                </div>
+                                
+                                <div class="callout">
+                                    <h5>Phased Approach Over Big Bang</h5>
+                                    <p>
+                                        Region-by-region migration allowed learning from each phase and adjusting procedures. 
+                                        This iterative approach reduced risk and ensured quality over speed.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: GenAI Development - FULL CASE STUDY -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-number">02</div>
+                        <div class="project-title-section">
+                            <h3>GenAI-Accelerated Application Development</h3>
+                            <div class="project-role">Full-Stack Developer • GenAI Implementation Lead</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Summary (Always Visible) -->
+                    <p style="color: var(--color-ink-light); line-height: 1.8; margin-bottom: var(--space-md);">
+                        Transformed application development velocity by leveraging cutting-edge GenAI tools and LLM-powered 
+                        workflows. Reduced development cycles from weeks to days while maintaining code quality and delivering 
+                        production-ready business applications for critical stakeholder requirements.
+                    </p>
+                    
+                    <div class="metrics-showcase">
+                        <div class="metric-item">
+                            <div class="metric-value">From Weeks</div>
+                            <div class="metric-label">to Days</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Multiple</div>
+                            <div class="metric-label">Apps Delivered</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Production</div>
+                            <div class="metric-label">Quality Maintained</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Team</div>
+                            <div class="metric-label">Enablement</div>
+                        </div>
+                    </div>
+                    
+                    <!-- <button class="toggle-case-study" onclick="toggleCaseStudy(this)">
+                        <span>Read Full Case Study</span>
+                        <span class="toggle-icon">▼</span>
+                    </button> -->
+                    
+                    <!-- Collapsible Case Study Content -->
+                    <div class="case-study-content">
+                        <div class="case-study-inner">
+                            
+                            <!-- Background -->
+                            <div class="cs-section">
+                                <h4>Background & Context</h4>
+                                <p>
+                                    Business stakeholders frequently required custom dashboards and data visualization tools to support 
+                                    decision-making across operations, analytics, and warehouse management. Traditional development 
+                                    approaches meant multi-week timelines for even simple applications, creating bottlenecks in 
+                                    business agility.
+                                </p>
+                                <p>
+                                    Emergence of advanced GenAI tools (Claude, GPT models, specialized coding assistants) presented 
+                                    opportunity to fundamentally transform development workflows and delivery speed.
+                                </p>
+                            </div>
+                            
+                            <!-- Problem Statement -->
+                            <div class="cs-section">
+                                <h4>Problem Statement</h4>
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Development Bottlenecks</h5>
+                                        <ul>
+                                            <li>2-3 week development cycles for dashboard applications</li>
+                                            <li>Repetitive boilerplate code consuming significant time</li>
+                                            <li>Manual UI component implementation slowing delivery</li>
+                                            <li>Limited developer bandwidth for small business requests</li>
+                                        </ul>
+                                    </div>
+                                    <div class="cs-block warning">
+                                        <h5>Business Challenges</h5>
+                                        <ul>
+                                            <li>Delayed insights affecting decision-making speed</li>
+                                            <li>Stakeholder frustration with development timelines</li>
+                                            <li>Opportunity cost from unbuilt applications</li>
+                                            <li>Need for rapid prototyping capabilities</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Research & Discovery -->
+                            <div class="cs-section">
+                                <h4>Research & Exploration Phase</h4>
+                                
+                                <h5>GenAI Tool Evaluation</h5>
+                                <p>
+                                    Conducted comprehensive evaluation of emerging GenAI development tools including Claude (Anthropic), 
+                                    ChatGPT Code Interpreter, GitHub Copilot, Kiro, and specialized coding assistants. Assessed each 
+                                    on code quality, context understanding, framework support, and integration capabilities.
+                                </p>
+                                
+                                <h5>Certification & Deep Learning</h5>
+                                <p>
+                                    Pursued Oracle Cloud Infrastructure 2025 Generative AI Professional certification to build 
+                                    foundational understanding of LLM architecture, prompt engineering, RAG systems, vector databases, 
+                                    and production AI application patterns. This theoretical grounding proved essential for effective 
+                                    practical application.
+                                </p>
+                                
+                                <h5>Pilot Projects</h5>
+                                <ul>
+                                    <li>Built proof-of-concept dashboard using AI-assisted development</li>
+                                    <li>Measured development time vs traditional approach</li>
+                                    <li>Evaluated code quality, maintainability, and performance</li>
+                                    <li>Documented effective prompting patterns and workflows</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Solution Design -->
+                            <div class="cs-section">
+                                <h4>Solution Design & Methodology</h4>
+                                
+                                <h5>AI-Augmented Development Workflow</h5>
+                                <p>
+                                    Designed hybrid approach combining human architectural decisions with AI-generated implementation. 
+                                    Developer maintains control over business logic, architecture, and quality standards while AI 
+                                    handles boilerplate, scaffolding, and repetitive patterns.
+                                </p>
+                                
+                                <div class="placeholder-box">
+                                    [Workflow Diagram: Business Requirements → Human Architecture → AI Implementation → Human Review → Production]<br>
+                                    <small>Placeholder for AI-assisted development workflow diagram</small>
+                                </div>
+                                
+                                <h5>Tool Selection & Integration</h5>
+                                <ul>
+                                    <li><strong>Claude AI:</strong> Complex business logic, data processing, backend implementation</li>
+                                    <li><strong>Kiro:</strong> UI component generation, frontend scaffolding</li>
+                                    <li><strong>Custom Prompts:</strong> Standardized patterns for consistent code generation</li>
+                                    <li><strong>RAG Integration:</strong> Context-aware code generation using project documentation</li>
+                                </ul>
+                                
+                                <h5>Quality Assurance Strategy</h5>
+                                <p>
+                                    Established rigorous review process: automated testing of AI-generated code, manual code review 
+                                    for business logic accuracy, performance benchmarking, and security scanning. Quality gates 
+                                    ensured AI-accelerated development didn't compromise standards.
+                                </p>
+                            </div>
+                            
+                            <!-- Implementation -->
+                            <div class="cs-section">
+                                <h4>Implementation & Delivery</h4>
+                                
+                                <h5>Applications Delivered</h5>
+                                <ul>
+                                    <li><strong>Analytics Dashboard:</strong> Real-time operational metrics visualization - built in 2 days</li>
+                                    <li><strong>Warehouse Management System:</strong> Inventory tracking and logistics - built in 1 day</li>
+                                    <li><strong>GenAI Agents:</strong> Integrated intelligent assistants into existing systems</li>
+                                    <li><strong>Stakeholder Demo Prototypes:</strong> Rapid proof-of-concepts for presentation</li>
+                                </ul>
+                                
+                                <div class="placeholder-box">
+                                    [Screenshot Placeholders: Analytics Dashboard | Warehouse Management UI | GenAI Agent Interface]<br>
+                                    <small>Space for application screenshots demonstrating delivered solutions</small>
+                                </div>
+                                
+                                <h5>Development Process</h5>
+                                <p>
+                                    Typical workflow: Gather requirements (2-4 hours), architect solution and data models (3-4 hours), 
+                                    AI-assisted implementation (4-6 hours), testing and refinement (2-3 hours), deployment (1-2 hours). 
+                                    Total: 1-2 days vs traditional 2-3 weeks.
+                                </p>
+                                
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Claude AI</span>
+                                    <span class="tech-tag">Kiro</span>
+                                    <span class="tech-tag">LLMs</span>
+                                    <span class="tech-tag">RAG Systems</span>
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">Vector Databases</span>
+                                    <span class="tech-tag">Prompt Engineering</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Challenges & Solutions -->
+                            <div class="cs-section">
+                                <h4>Challenges & Solutions</h4>
+                                
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Challenge: Code Quality Concerns</h5>
+                                        <p>
+                                            Initial stakeholder skepticism about AI-generated code quality and maintainability.
+                                        </p>
+                                    </div>
+                                    <div class="cs-block">
+                                        <h5>Solution</h5>
+                                        <p>
+                                            Implemented comprehensive testing suite, code review process, and documentation standards. 
+                                            Demonstrated that AI-generated code meeting quality gates performed identically to 
+                                            traditionally written code.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Challenge: Context Limitations</h5>
+                                        <p>
+                                            AI models sometimes generated code inconsistent with existing architectural patterns.
+                                        </p>
+                                    </div>
+                                    <div class="cs-block">
+                                        <h5>Solution</h5>
+                                        <p>
+                                            Built custom RAG system indexing internal documentation, coding standards, and architectural 
+                                            patterns. This provided AI tools with project-specific context for consistent code generation.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Challenge: Team Adoption</h5>
+                                        <p>
+                                            Other developers hesitant to adopt AI-assisted workflows due to unfamiliarity.
+                                        </p>
+                                    </div>
+                                    <div class="cs-block">
+                                        <h5>Solution</h5>
+                                        <p>
+                                            Conducted hands-on workshops demonstrating effective prompting techniques, shared best 
+                                            practices documentation, and established peer mentoring program for adoption support.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Results -->
+                            <div class="cs-section">
+                                <h4>Results & Impact</h4>
+                                
+                                <h5>Quantitative Outcomes</h5>
+                                <div class="metrics-showcase">
+                                    <div class="metric-item">
+                                        <div class="metric-value">90%</div>
+                                        <div class="metric-label">Time Reduction</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value">5+</div>
+                                        <div class="metric-label">Apps Delivered</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value">100%</div>
+                                        <div class="metric-label">Quality Standards Met</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value">Team-Wide</div>
+                                        <div class="metric-label">Adoption</div>
+                                    </div>
+                                </div>
+                                
+                                <h5>Business Value</h5>
+                                <ul>
+                                    <li>Dramatically improved responsiveness to stakeholder requests</li>
+                                    <li>Enabled rapid prototyping for presentations and decision-making</li>
+                                    <li>Freed developer capacity for complex architectural challenges</li>
+                                    <li>Positioned organization as early adopter of GenAI capabilities</li>
+                                    <li>Created reusable patterns accelerating future projects</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Lessons Learned -->
+                            <div class="cs-section">
+                                <h4>Lessons Learned</h4>
+                                
+                                <div class="callout">
+                                    <h5>AI Augments, Not Replaces</h5>
+                                    <p>
+                                        Most effective when AI handles repetitive patterns while humans maintain architectural 
+                                        control and business logic ownership. Partnership model produces best results.
+                                    </p>
+                                </div>
+                                
+                                <div class="callout">
+                                    <h5>Quality Gates are Essential</h5>
+                                    <p>
+                                        Automated testing, code review, and security scanning remain critical. Speed gains 
+                                        shouldn't compromise quality standards - gates ensure consistency.
+                                    </p>
+                                </div>
+                                
+                                <div class="callout">
+                                    <h5>Context is Everything</h5>
+                                    <p>
+                                        Providing AI tools with project-specific context (via RAG, documentation, examples) 
+                                        dramatically improves output quality and reduces iteration cycles.
+                                    </p>
+                                </div>
+                                
+                                <div class="callout">
+                                    <h5>Continuous Learning Required</h5>
+                                    <p>
+                                        GenAI field evolves rapidly. Staying current with new tools, techniques, and best 
+                                        practices through certifications and experimentation is essential for maintaining effectiveness.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: CI/CD & Kubernetes - FULL CASE STUDY -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-number">03</div>
+                        <div class="project-title-section">
+                            <h3>Cloud-Native Deployment & DevSecOps Automation</h3>
+                            <div class="project-role">DevOps Engineer • Container Orchestration Lead</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Summary -->
+                    <p style="color: var(--color-ink-light); line-height: 1.8; margin-bottom: var(--space-md);">
+                        Modernized application deployment strategy through containerization, Kubernetes orchestration, and 
+                        DevSecOps automation. Established production-ready cloud-native foundation with integrated security 
+                        scanning, enabling portable, scalable, and secure deployments across environments.
+                    </p>
+                    
+                    <div class="metrics-showcase">
+                        <div class="metric-item">
+                            <div class="metric-value">OpenShift</div>
+                            <div class="metric-label">Production Deployment</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Automated</div>
+                            <div class="metric-label">Security Gates</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Portable</div>
+                            <div class="metric-label">Across Environments</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">DevSecOps</div>
+                            <div class="metric-label">Pipeline</div>
+                        </div>
+                    </div>
+                    
+                    <!-- <button class="toggle-case-study" onclick="toggleCaseStudy(this)">
+                        <span>Read Full Case Study</span>
+                        <span class="toggle-icon">▼</span>
+                    </button> -->
+                    
+                    <!-- Collapsible Case Study Content -->
+                    <div class="case-study-content">
+                        <div class="case-study-inner">
+                            
+                            <!-- Background -->
+                            <div class="cs-section">
+                                <h4>Background & Strategic Context</h4>
+                                <p>
+                                    Organization's application deployment relied on traditional server-based approaches with manual 
+                                    configuration management. This created environment inconsistencies, complicated scaling, and limited 
+                                    portability. Leadership identified cloud-native transformation as strategic imperative for future 
+                                    competitiveness.
+                                </p>
+                                <p>
+                                    Container orchestration and automated security scanning emerged as critical capabilities for modern 
+                                    application delivery. Initiative aimed to establish foundation for scalable, secure cloud-native operations.
+                                </p>
+                            </div>
+                            
+                            <!-- Problem Statement -->
+                            <div class="cs-section">
+                                <h4>Problem Statement</h4>
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Technical Limitations</h5>
+                                        <ul>
+                                            <li>Environment-specific configurations causing deployment inconsistencies</li>
+                                            <li>Manual security checks creating vulnerabilities and delays</li>
+                                            <li>Difficult horizontal scaling for load management</li>
+                                            <li>Limited deployment portability across cloud providers</li>
+                                            <li>Slow rollback capabilities during issues</li>
+                                        </ul>
+                                    </div>
+                                    <div class="cs-block warning">
+                                        <h5>Operational Challenges</h5>
+                                        <ul>
+                                            <li>High operational overhead from manual processes</li>
+                                            <li>Security scanning delays blocking releases</li>
+                                            <li>Limited visibility into application health</li>
+                                            <li>Difficulty reproducing production issues locally</li>
+                                            <li>Vendor lock-in concerns</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Research & Design -->
+                            <div class="cs-section">
+                                <h4>Research & Solution Design</h4>
+                                
+                                <h5>Technology Evaluation</h5>
+                                <p>
+                                    Evaluated container orchestration platforms (Kubernetes, Docker Swarm, AWS ECS) based on community 
+                                    support, feature set, portability, and organizational fit. Kubernetes selected for industry-standard 
+                                    status and Red Hat OpenShift adoption aligning with existing enterprise relationships.
+                                </p>
+                                
+                                <h5>Architecture Design</h5>
+                                <ul>
+                                    <li>Containerization strategy using Docker for application packaging</li>
+                                    <li>Kubernetes for orchestration, scaling, and self-healing capabilities</li>
+                                    <li>Helm charts for templated deployment configurations</li>
+                                    <li>DevSecOps pipeline integrating security at every stage</li>
+                                    <li>GitOps workflow for declarative configuration management</li>
+                                </ul>
+                                
+                                <div class="placeholder-box">
+                                    [Architecture Diagram: Application → Docker → Kubernetes → OpenShift with DevSecOps Pipeline]<br>
+                                    <small>Placeholder for cloud-native architecture diagram</small>
+                                </div>
+                            </div>
+                            
+                            <!-- Implementation -->
+                            <div class="cs-section">
+                                <h4>Implementation Journey</h4>
+                                
+                                <h5>Containerization Phase</h5>
+                                <ul>
+                                    <li>Authored production-ready Dockerfiles following best practices</li>
+                                    <li>Optimized image sizes and layer caching for performance</li>
+                                    <li>Implemented multi-stage builds for security and efficiency</li>
+                                    <li>Established base image standards and scanning procedures</li>
+                                </ul>
+                                
+                                <h5>Kubernetes Configuration</h5>
+                                <ul>
+                                    <li>Created comprehensive deployment manifests (Deployments, Services, Ingress)</li>
+                                    <li>Configured resource limits, health checks, and auto-scaling policies</li>
+                                    <li>Implemented ConfigMaps and Secrets for environment-specific configuration</li>
+                                    <li>Designed network policies for secure pod communication</li>
+                                </ul>
+                                
+                                <h5>DevSecOps Integration</h5>
+                                <ul>
+                                    <li>Integrated automated security scanning in CI/CD pipeline</li>
+                                    <li>Configured quality gates blocking vulnerable deployments</li>
+                                    <li>Implemented automated compliance checking</li>
+                                    <li>Established approval workflows for production releases</li>
+                                </ul>
+                                
+                                <h5>OpenShift Deployment</h5>
+                                <p>
+                                    Successfully validated complete workflow on Red Hat OpenShift cluster. Demonstrated container 
+                                    orchestration, automated scaling, rolling updates, and integrated security scanning in production-like 
+                                    environment. Validated disaster recovery and rollback procedures.
+                                </p>
+                                
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Docker</span>
+                                    <span class="tech-tag">Kubernetes</span>
+                                    <span class="tech-tag">Red Hat OpenShift</span>
+                                    <span class="tech-tag">Helm</span>
+                                    <span class="tech-tag">DevSecOps</span>
+                                    <span class="tech-tag">GitOps</span>
+                                    <span class="tech-tag">Security Scanning</span>
+                                    <span class="tech-tag">CI/CD Automation</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Challenges -->
+                            <div class="cs-section">
+                                <h4>Challenges & Solutions</h4>
+                                
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Challenge: Application Compatibility</h5>
+                                        <p>
+                                            Legacy applications designed for traditional deployment required refactoring for containerization.
+                                        </p>
+                                    </div>
+                                    <div class="cs-block">
+                                        <h5>Solution</h5>
+                                        <p>
+                                            Adopted incremental approach: identified containerization candidates, refactored for 12-factor 
+                                            principles, and created migration playbook for systematic transformation.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Challenge: Security Compliance</h5>
+                                        <p>
+                                            Meeting organizational security requirements while maintaining deployment speed.
+                                        </p>
+                                    </div>
+                                    <div class="cs-block">
+                                        <h5>Solution</h5>
+                                        <p>
+                                            Automated security scanning in pipeline with clear severity thresholds. Critical vulnerabilities 
+                                            block deployment, while lower severity issues create remediation tickets.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="cs-grid">
+                                    <div class="cs-block warning">
+                                        <h5>Challenge: Team Knowledge Gap</h5>
+                                        <p>
+                                            Development and operations teams unfamiliar with Kubernetes concepts and workflows.
+                                        </p>
+                                    </div>
+                                    <div class="cs-block">
+                                        <h5>Solution</h5>
+                                        <p>
+                                            Developed comprehensive training program, created documentation and runbooks, and established 
+                                            center of excellence for Kubernetes expertise sharing.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Results -->
+                            <div class="cs-section">
+                                <h4>Results & Business Impact</h4>
+                                
+                                <h5>Technical Outcomes</h5>
+                                <div class="metrics-showcase">
+                                    <div class="metric-item">
+                                        <div class="metric-value">Production</div>
+                                        <div class="metric-label">Ready Platform</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value">Automated</div>
+                                        <div class="metric-label">Security</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value">100%</div>
+                                        <div class="metric-label">Environment Parity</div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-value">Seconds</div>
+                                        <div class="metric-label">Rollback Time</div>
+                                    </div>
+                                </div>
+                                
+                                <h5>Operational Benefits</h5>
+                                <ul>
+                                    <li>Consistent deployments across development, staging, and production</li>
+                                    <li>Automated horizontal scaling based on load</li>
+                                    <li>Self-healing capabilities reducing manual intervention</li>
+                                    <li>Improved resource utilization through container orchestration</li>
+                                    <li>Platform portability reducing vendor lock-in</li>
+                                </ul>
+                                
+                                <h5>Strategic Value</h5>
+                                <p>
+                                    Established modern cloud-native foundation enabling future digital transformation initiatives. 
+                                    DevSecOps integration ensured security by default. Container orchestration positioned organization 
+                                    for microservices architecture evolution and multi-cloud strategies.
+                                </p>
+                            </div>
+                            
+                            <!-- Lessons Learned -->
+                            <div class="cs-section">
+                                <h4>Key Learnings</h4>
+                                
+                                <div class="callout">
+                                    <h5>Security from Day One</h5>
+                                    <p>
+                                        Integrating security scanning and compliance checking from initial pipeline design prevented 
+                                        technical debt and ensured secure-by-default deployments from the start.
+                                    </p>
+                                </div>
+                                
+                                <div class="callout">
+                                    <h5>Start Small, Scale Incrementally</h5>
+                                    <p>
+                                        Beginning with pilot applications validated approach before full-scale rollout. This reduced 
+                                        risk and built organizational confidence in container orchestration capabilities.
+                                    </p>
+                                </div>
+                                
+                                <div class="callout">
+                                    <h5>Documentation is Infrastructure</h5>
+                                    <p>
+                                        Comprehensive runbooks, troubleshooting guides, and best practices documentation proved as 
+                                        important as technical implementation for sustainable operations.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 & 5: Shorter Format (No Full Case Study) -->
+                
+                <!-- Project 4: System Performance -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-number">04</div>
+                        <div class="project-title-section">
+                            <h3>System Performance & Partner Integration</h3>
+                            <div class="project-role">Performance Optimization Lead</div>
+                        </div>
+                    </div>
+                    
+                    <p style="color: var(--color-ink-light); line-height: 1.8; margin-bottom: var(--space-md);">
+                        Modernized integration layer through API gateway deployment and protocol optimization. Achieved measurable 
+                        performance improvements while establishing centralized security policies. Successfully integrated multiple 
+                        external partner systems for seamless business operations.
+                    </p>
+                    
+                    <div class="cs-grid">
+                        <div class="cs-block warning">
+                            <h5>The Challenge</h5>
+                            <p>
+                                Integration layer required modernization for better performance, security, and deployment efficiency. 
+                                Applications needed optimization for faster response times. Multiple partner systems required integration.
+                            </p>
+                        </div>
+                        <div class="cs-block">
+                            <h5>The Solution</h5>
+                            <p>
+                                Deployed API gateway on Linux servers providing centralized routing and security. Enabled modern 
+                                HTTP/2 protocol at load balancer level. Optimized application performance through database tuning 
+                                and query optimization. Executed partner integrations for various systems.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics-showcase">
+                        <div class="metric-item">
+                            <div class="metric-value">Improved</div>
+                            <div class="metric-label">API Throughput</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Reduced</div>
+                            <div class="metric-label">Latency</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Centralized</div>
+                            <div class="metric-label">Security</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">3 Partners</div>
+                            <div class="metric-label">Integrated</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-tags">
+                        <span class="tech-tag">API Gateway</span>
+                        <span class="tech-tag">HTTP/2 Protocol</span>
+                        <span class="tech-tag">Load Balancer Optimization</span>
+                        <span class="tech-tag">Database Performance Tuning</span>
+                        <span class="tech-tag">Linux Administration</span>
+                        <span class="tech-tag">Partner Integration</span>
+                    </div>
+                    
+                    <div class="callout">
+                        <h5>Key Decision</h5>
+                        <p>
+                            Implemented API gateway early in modernization journey to establish centralized control point for 
+                            security, routing, and observability. This foundation enabled systematic integration of partner 
+                            systems with consistent policies and monitoring.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Automation -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-number">05</div>
+                        <div class="project-title-section">
+                            <h3>Automation & Developer Productivity</h3>
+                            <div class="project-role">Automation Specialist • Tool Developer</div>
+                        </div>
+                    </div>
+                    
+                    <p style="color: var(--color-ink-light); line-height: 1.8; margin-bottom: var(--space-md);">
+                        Built comprehensive automation ecosystem spanning operational monitoring, leadership reporting, and developer 
+                        productivity enhancement. Reduced manual effort while improving visibility and accelerating development workflows 
+                        through strategic tool adoption.
+                    </p>
+                    
+                    <div class="cs-grid">
+                        <div class="cs-block warning">
+                            <h5>The Challenge</h5>
+                            <p>
+                                Manual reporting consumed significant time. Technical leads needed regular performance metrics. 
+                                Leadership required operational visibility. Development workflows needed acceleration through modern tooling.
+                            </p>
+                        </div>
+                        <div class="cs-block">
+                            <h5>The Solution</h5>
+                            <p>
+                                Developed Python and PowerShell automation scripts for metrics collection and distribution. Configured 
+                                Power BI with automated weekly reports. Established GenAI developer productivity tools (Claude, Kiro) 
+                                adoption patterns. Automated database backup workflows.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics-showcase">
+                        <div class="metric-item">
+                            <div class="metric-value">Automated</div>
+                            <div class="metric-label">Reporting</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Time</div>
+                            <div class="metric-label">Savings</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Leadership</div>
+                            <div class="metric-label">Visibility</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Team</div>
+                            <div class="metric-label">Productivity</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python Automation</span>
+                        <span class="tech-tag">PowerShell</span>
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">Power Automate</span>
+                        <span class="tech-tag">SharePoint</span>
+                        <span class="tech-tag">Claude AI</span>
+                        <span class="tech-tag">Kiro</span>
+                        <span class="tech-tag">AWS Services</span>
+                    </div>
+                    
+                    <div class="callout">
+                        <h5>Key Insight</h5>
+                        <p>
+                            Developer productivity tools amplify team capabilities rather than replace expertise. Combined with 
+                            automated operational monitoring, teams focus on high-value work while maintaining full visibility 
+                            into system health and performance metrics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Certifications -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Professional Credentials</div>
+                <h2 class="section-title">Certifications</h2>
+                <p class="section-description">
+                    Formal recognition of technical expertise and commitment to continuous learning in emerging technologies.
+                </p>
+            </div>
+            
+            <div class="cert-grid">
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">🎓</div>
+                    <h3>Oracle Cloud Infrastructure 2025 Generative AI Professional</h3>
+                    <div class="cert-issuer">Oracle • 2025</div>
+                    <ul>
+                        <li>Large Language Models (LLMs) architecture and implementation</li>
+                        <li>Prompt engineering and fine-tuning techniques</li>
+                        <li>Retrieval-Augmented Generation (RAG) systems</li>
+                        <li>Vector databases and embeddings</li>
+                        <li>Production-grade GenAI application development</li>
+                    </ul>
+                </div>
+                
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">📜</div>
+                    <h3>Docker Certified Associate</h3>
+                    <div class="cert-issuer">Docker • 2022</div>
+                    <ul>
+                        <li>Creating and managing Docker images in a registry</li>
+                        <li>Configuring and writing docker files, volumes, and persistent data.</li>
+					</ul>
+                </div>
+                
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">🏆</div>
+                    <h3>Certified Hyperledger Developer</h3>
+                    <div class="cert-issuer">Blockchain Council • 2022</div>
+                    <ul>
+                        <li>Principles, architecture, tools, and best practices</li>
+                        <li>Building, managing, and securing Fabric networks.</li>
+					</ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-label">Get In Touch</div>
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-description" style="margin: 0 auto;">
+                Open to discussing opportunities in DevOps, cloud architecture, full-stack development, 
+                and GenAI implementation. Available for professional collaboration and technical discussions.
+            </p>
+            <div class="contact-links">
+                <a href="/cdn-cgi/l/email-protection#95ecfae0e7bbf0f8f4fcf9d5f0edf4f8e5f9f0bbf6faf8" class="btn btn-primary">Email Me</a>
+                <a href="https://www.linkedin.com/in/dilipkumarmohan/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                <a href="https://github.com/dmohan1111" target="_blank" class="btn btn-secondary">GitHub</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Dilip Mohan · Delivering Excellence in Cloud & AI</p>
+        </div>
+    </footer>
+        
+	<script>
+        // Toggle case study sections
+        function toggleCaseStudy(button) {
+            button.classList.toggle('active');
+            const content = button.nextElementSibling;
+            content.classList.toggle('expanded');
+        }
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
